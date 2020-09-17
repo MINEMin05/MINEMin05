@@ -36,7 +36,7 @@ client.on('message', (message) => {
     return message.reply('pong');
   }
 
-  if(message.content == '!서버상태') {
+  if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
     let img = 'https://images.pexels.com/photos/128865/pexels-photo-128865.jpeg?cs=srgb&dl=pexels-life-of-pix-128865.jpg&fm=jpg';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
