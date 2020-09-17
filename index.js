@@ -36,6 +36,10 @@ client.on('message', (message) => {
     return message.reply('pong');
   }
 
+  if(message.content == 'MINE준') {
+    return message.reply('MINE준 바보 입니다');
+}
+
   else if(message.content == '!초대코드') {
     message.guild.channels.get(message.channel.id).createInvite({maxAge: 0}) // maxAge: 0은 무한이라는 의미, maxAge부분을 지우면 24시간으로 설정됨
       .then(invite => {
