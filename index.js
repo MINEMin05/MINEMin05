@@ -40,7 +40,7 @@ client.on('message', (message) => {
     let embed = new Discord.RichEmbed()
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
     embed.setColor('#186de6')
-    embed.setAuthor('server info', img)
+    embed.setAuthor('server info')
     embed.setFooter(`MINEMin05`)
     embed.addBlankField()
     embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
