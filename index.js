@@ -38,9 +38,10 @@ client.on('message', (message) => {
 
   if(message.content == '!서버상태') {
     let embed = new Discord.RichEmbed()
+    let img = 'https://images.pexels.com/photos/128865/pexels-photo-128865.jpeg?cs=srgb&dl=pexels-life-of-pix-128865.jpg&fm=jpg';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
     embed.setColor('#186de6')
-    embed.setAuthor('server info')
+    embed.setAuthor('server info',img)
     embed.setFooter(`MINEMin05`)
     embed.addBlankField()
     embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
