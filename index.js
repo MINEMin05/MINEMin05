@@ -38,6 +38,11 @@ client.on('message', (message) => {
 
   if(message.content == 'MINE준') {
     return message.reply('MINE준 바보 입니다');
+  }
+
+  if(message.content == 'Ang') {
+    return message.reply('앙');
+
 }
 
   else if(message.content == '!초대코드') {
