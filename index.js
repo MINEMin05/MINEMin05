@@ -42,12 +42,15 @@ client.on('message', (message) => {
 
   if(message.content == 'Ang') {
     return message.reply('앙');
+  }
 
   if(message.content == '최씨') {
     return message.reply('장씨');
+  }
 
   if(message.content == '김씨') {
     return message.reply('민씨');
+  }
 
 }
 
