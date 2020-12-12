@@ -44,14 +44,6 @@ client.on('message', (message) => {
     return message.reply('앙');
   }
 
-  if(message.content == '최씨') {
-    return message.reply('장씨');
-  }
-
-  if(message.content == '김씨') {
-    return message.reply('민씨');
-  }
-
 }
 
   else if(message.content == '!초대코드') {
