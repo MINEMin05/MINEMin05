@@ -13,17 +13,53 @@ client.on('ready', () => {
 client.on('message', (message) => {
   if(message.author.bot) return;
 
-  if(message.content == 'ping') {
+  if(message.content == '!ping') { // 글을 쓰면 대답하는 말
     return message.reply('pong');
   }
-  if(message.content == 'MINE준') {
+  if(message.content == '!MINE준') {
     return message.reply('MINE준 바보 입니다');
   }
-  const newLocal = '!전체공지';
-  if(message.content == 'Ang') {
+  if(message.content == '!Ang') {
     return message.reply('앙');
   }
+  if(message.content == '!최씨') {
+    return message.reply('장씨');
+  }
+  if(message.content == '!김씨') {
+    return message.reply('민씨');
+  }
+  if(message.content == '!앙') {
+    return message.reply('기모띠');
+  }
+  else if(message.content == '!help') {
+    let helpImg = 'https://images-ext-1.discordapp.net/external/RyofVqSAVAi0H9-1yK6M8NGy2grU5TWZkLadG-rwqk0/https/i.imgur.com/EZRAPxR.png';
+    let commandList = [
+      {name: '!ping', desc: '현재 핑 상태을 알립니다.'},
+      {name: '!MINE준', desc: '대답을 합니다.'},
+      {name: '!Ang', desc: '대답을 합니다.'},
+      {name: '!최씨', desc: '대답을 합니다.'},
+      {name: '!김씨', desc: '대답을 합니다.'},
+      {name: '!앙', desc: '대답을 합니다.'},
+      {name: '!초대코드', desc: '현재 서버 초대코드 를 알립니다.'},
+      {name: '!초대코드2', desc: '이 봇이 존재하는 곳의 초대코드를 알립니다.'},
+      {name: '!전체공지', desc: 'dm으로 공지사항을 보냅니다.'},
+      {name: '!전체공지2', desc: 'dm으로 큰글의 공지사할을 보냅니다..'},
+      {name: '!청소', desc: '1 | 100 사이의 숫자를 입력해 글을 지웁니다..'},
+    ];
+    let commandStr = '';
+    let embed = new Discord.RichEmbed()
+      .setAuthor('BOT help command', helpImg)
+      .setColor('#186de6')
+      .setFooter(`MINEMin05 BOT`)
+      .setTimestamp()
+    
+    commandList.forEach(x => {
+      commandStr += `• \`\`${changeCommandStringLength(`${x.name}`)}\`\` : **${x.desc}**\n`;
+  });
+  embed.addField('Commands: ', commandStr);
 
+    message.channel.send(embed)
+  } 
   else if(message.content == '!초대코드2') {
     client.guilds.array().forEach(x => {
       x.channels.find(x => x.type == 'text').createInvite({maxAge: 0}) // maxAge: 0은 무한이라는 의미, maxAge부분을 지우면 24시간으로 설정됨
@@ -56,10 +92,10 @@ client.on('message', (message) => {
       let embed = new Discord.RichEmbed()
         .setAuthor('공지 MINEMin05 BOT')
         .setColor('#186de6')
-        .setFooter(`공지 입니다`)
+        .setFooter(`관리자가 보낸 공지 입니다.`)
         .setTimestamp()
   
-      embed.addField('공지: ', contents);
+      embed.addField('관리자: ', contents);
   
       message.member.guild.members.array().forEach(x => {
         if(x.user.bot) return;
@@ -126,7 +162,7 @@ client.on('message', (message) => {
 
 function checkPermission(message) {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) {
-    message.channel.send(`<@${message.author.id}> ` + "명령어를 수행할 관리자 권한을 소지하고 있지않습니다.")
+    message.channel.send(`<@${message.author.id}> ` + "명령어를 수행할 관리자 권한이 없습니다.")
     return true;
   } else {
     return false;
