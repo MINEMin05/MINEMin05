@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "@lavacord/discord.js": "0.0.7",
-    "discord.js": "^11.5.1",
-    "node-fetch": "^2.6.1"
+    "discord.js": "^11.6.4",
+    "node-fetch": "^2.6.1",
+    "weather-js": "^2.0.0"
   }
 }

@@ -10,6 +10,8 @@ client.on('ready', () => {
   client.user.setPresence({ game: { name: '오늘도 일' }, status: 'online' })
 });
 
+const prefix = '' //프리픽스
+
 client.on('message', (message) => { // 글을 입역하고 인식을 한다
   if(message.author.bot) return;
 
@@ -187,6 +189,5 @@ async function AutoMsgDelete(message, str, delay = 3000) {
     msg.delete();
   }, delay);
 }
-
 
 client.login(token);
