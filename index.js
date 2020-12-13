@@ -73,6 +73,7 @@ client.on('message', (message) => {
       {name: '!전체공지', desc: 'dm으로 공지사항을 보냅니다.'},
       {name: '!전체공지2', desc: 'dm으로 큰글의 공지사할을 보냅니다..'},
       {name: '!청소', desc: '1 | 100 사이의 숫자를 입력해 글을 지웁니다..'},
+      {name: '!서버정보', desc: '서버의 정보나 용량 등 정보를 알립니다.'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
