@@ -10,39 +10,11 @@ client.on('ready', () => {
   client.user.setPresence({ game: { name: '오늘도 일' }, status: 'online' })
 });
 
-client.on('message', (message) => {
+client.on('message', (message) => { // 글을 입역하고 인식을 한다
   if(message.author.bot) return;
 
-  if(message.content == '!서버정보') {
-    let embed = new Discord.RichEmbed()
-    var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
-    embed.setColor('#186de6')
-    embed.setAuthor('Server MINEMin05 BOT')
-    embed.setFooter(`MINEMin05 BOT`)
-    embed.addBlankField()
-    embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
-    embed.addField('running time', `${duration}`, true);
-    embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
-    embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
-    embed.addField('Discord.js',   `v${Discord.version}`, true);
-    embed.addField('Node',         `${process.version}`, true);
-    
-    let arr = client.guilds.array();
-    let list = '';
-    list = `\`\`\`css\n`;
-    
-    for(let i=0;i<arr.length;i++) {
-      list += `${arr[i].name}\n`
-    }
-    list += `\`\`\`\n`
-    embed.addField('list:',        `${list}`);
-
-    embed.setTimestamp()
-    message.channel.send(embed);
-  }
-
-  if(message.content == '!ping') { // 글을 쓰면 대답하는 말
-    return message.reply('pong');
+  if(message.content == '!ping') { //!ping 라 입력 하면
+    return message.reply('pong'); //pong 라고 대답 한다
   }
   if(message.content == '!MINE준') {
     return message.reply('MINE준 바보 입니다');
@@ -73,7 +45,6 @@ client.on('message', (message) => {
       {name: '!전체공지', desc: 'dm으로 공지사항을 보냅니다.'},
       {name: '!전체공지2', desc: 'dm으로 큰글의 공지사할을 보냅니다..'},
       {name: '!청소', desc: '1 | 100 사이의 숫자를 입력해 글을 지웁니다..'},
-      {name: '!서버정보', desc: '서버의 정보나 용량 등 정보를 알립니다.'},
     ];
     let commandStr = '';
     let embed = new Discord.RichEmbed()
