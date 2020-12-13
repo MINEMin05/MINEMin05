@@ -6,12 +6,18 @@ const byeChannelName = "안녕히가세요";
 const welcomeChannelComment = "어서오세요.";
 const byeChannelComment = "안녕히가세요.";
 
+
+client.on('ready', () => {
+  console.log('켰다.');
+  client.user.setPresence({ game: { name: '오늘도 일' }, status: 'online' })
+});
+
 const {Manager} = require('@lavacord/discord.js');
 const nodes = [{
     id: '1',
     host: 'localhost',
     port: 2333,
-    password: "pw"
+    password: "alslwnsl1082"
 }];
 const mainPlayer = new Manager(bot, nodes);
 
@@ -281,11 +287,6 @@ bot.on('message', async msg => {
     if(!command.hasOwnProperty(cmd)) return msg.channel.send(fmt("No command associated with input."));
 
     command[cmd](msg, args);
-});
-
-client.on('ready', () => {
-  console.log('켰다.');
-  client.user.setPresence({ game: { name: '오늘도 일' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
